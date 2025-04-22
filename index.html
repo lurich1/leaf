@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>क्रिशि Sahaytam</title>
+    <link rel="icon" href="logo/favicon_io/favicon-32x32.png">
+    <!-- Add Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #45a049;
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        /* Navigation */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .auth-button {
+            padding: 0.5rem 1.5rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
+            background: transparent;
+            color: var(--primary-color);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .auth-button:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 5%;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 80vh;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding-right: 2rem;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 5%;
+            background: var(--light-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--text-color);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 5rem 5%;
+        }
+
+        .leaf-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .leaf-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .leaf-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .leaf-card-title {
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.2rem;
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 5rem 5%;
+            text-align: center;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+        }
+
+        .cta-title {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--text-color);
+        }
+
+        .cta-button {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--secondary-color);
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 3rem 5%;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-contact {
+            list-style: none;
+        }
+
+        .footer-contact li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem 5%;
+            }
+
+            .hero-content {
+                padding-right: 0;
+                margin-bottom: 2rem;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="logo/Krishi सहायतम.png" alt="Krishi Sahaytam Logo" class="logo-img" onclick="location.reload()">
+            <span class="logo-text" onclick="location.reload()">क्रिशि Sahaytam</span>
+        </div>
+        <button class="auth-button">Sign up / Sign in</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Empowering Farmers with AI Technology</h1>
+            <p class="hero-subtitle">Advanced leaf disease detection and treatment recommendations for healthier crops</p>
+            <button id="clickMeBtn" class="cta-button">Start Scanning</button>
+        </div>
+        <div class="hero-image">
+            <img src="Untitled.jpeg" alt="Krishi Sahaytam Hero Image">
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="section-title">What is <span style="color: var(--primary-color);">क्रिशि Sahaytam</span>?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3 class="feature-title">AI Technology</h3>
+                <p>With our AI-driven technology, we offer precise disease diagnosis and treatment suggestions tailored to each plant's condition. From leaf analysis to detailed care guidance, क्रिशि Sahaytam ensures farmers have the tools they need to protect their crops and improve yield.</p>
+            </div>
+            <div class="feature-card">
+                <h3 class="feature-title">Leaf Scanning</h3>
+                <p>Our leaf scanning feature simplifies the process of identifying plant diseases, providing instant results and actionable insights. By integrating expert instructions into our platform, farmers can take immediate steps to address issues and maintain the health of their plants.</p>
+            </div>
+            <div class="feature-card">
+                <h3 class="feature-title">Expert Instructions</h3>
+                <p>Experience the future of agriculture with क्रिशि Sahaytam's comprehensive disease detection services. Our user-friendly platform empowers farmers to make informed decisions and implement effective solutions for healthier crops.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2 class="section-title">Our Testimonials</h2>
+        <div class="leaf-grid">
+            <!-- Healthy Leaves -->
+            <div class="leaf-card">
+                <img src="Data/2d64e4d4-f56d-4f48-9d71-4633b2449296.jpg" alt="Healthy leaf">
+                <div class="leaf-card-title">Healthy Leaf</div>
+            </div>
+            <div class="leaf-card">
+                <img src="Data/d9f7c4f0-50de-4c7f-babd-27197f7b3529.jpg" alt="Healthy leaf">
+                <div class="leaf-card-title">Healthy Leaf</div>
+            </div>
+            <div class="leaf-card">
+                <img src="Data/Screenshot_20250106_214431_Chrome.jpg" alt="Healthy leaf">
+                <div class="leaf-card-title">Healthy Leaf</div>
+            </div>
+        </div>
+        <div class="leaf-grid" style="margin-top: 2rem;">
+            <!-- Unhealthy Leaves -->
+            <div class="leaf-card">
+                <img src="Data/WhatsApp Image 2025-01-06 at 9.52.20 PM.jpeg" alt="Unhealthy leaf">
+                <div class="leaf-card-title">Unhealthy Leaf</div>
+            </div>
+            <div class="leaf-card">
+                <img src="Data/WhatsApp Image 2025-01-06 at 9.52.21 PM.jpeg" alt="Unhealthy leaf">
+                <div class="leaf-card-title">Unhealthy Leaf</div>
+            </div>
+            <div class="leaf-card">
+                <img src="Data/w.jpg" alt="Unhealthy leaf">
+                <div class="leaf-card-title">Unhealthy Leaf</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <h2 class="cta-title">Scan Your <span style="color: var(--primary-color);">Leaf</span> Today!</h2>
+        <img src="logo2.0.png" alt="Krishi Sahaytam Logo" style="width: 200px; margin: 2rem 0;">
+        <button id="scanButton" class="cta-button">Start Scanning Now</button>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <h3 class="footer-title">Contact Us</h3>
+                <ul class="footer-contact">
+                    <li>Team WillFire</li>
+                    <li>Phone: +91 9687545402</li>
+                    <li>Email: willfire1337@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("clickMeBtn").addEventListener("click", function() {
+            window.location.href = "https://smartphone.edgeimpulse.com/classifier.html?publicProjectId=672179";
+        });
+        
+        document.getElementById("scanButton").addEventListener("click", function() {
+            window.location.href = "https://smartphone.edgeimpulse.com/classifier.html?publicProjectId=672179";
+        });
+    </script>
+</body>
+</html> 
